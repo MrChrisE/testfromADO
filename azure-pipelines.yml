@@ -26,3 +26,7 @@ steps:
   inputs:
     connectedServiceName: 'DevOps Connection'
     changesetId: '123'
+- task: ServiceNow-DevOps-Agent-Job-Notification@1
+  inputs:
+    connectedServiceName: 'DevOps Connection'
+    Phase: 'COMPLETED'
