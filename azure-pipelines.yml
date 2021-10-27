@@ -1,19 +1,23 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
 trigger:
-- master
-name: $(Date:yyyyMMdd)$(Rev:.r)
+- main
 
-stages:
-  - stage: Build
-    jobs:
+pool:
+  vmImage: ubuntu-latest
 
-    - job: 'Build'
-      steps:
-      
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
 - task: ServiceNow-DevOps-Agent-Job-Notification@1
   inputs:
     connectedServiceName: 'DevOps Connection'
     Phase: 'STARTED'
-- task: ServiceNow-DevOps-Config-Agent-Register-Changeset@1
-  inputs:
-    connectedServiceName: 'DevOps Connection'
-    changesetId: '123'
