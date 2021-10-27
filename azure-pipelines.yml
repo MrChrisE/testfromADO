@@ -6,27 +6,23 @@
 trigger:
 - main
 
-pool:
-  vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- stage: 'Build'
+  jobs:
+  - job: 'Test'
+    steps: 
 
 - task: ServiceNow-DevOps-Agent-Job-Notification@1
   inputs:
     connectedServiceName: 'DevOps Connection'
     Phase: 'STARTED'
-- task: ServiceNow-DevOps-Config-Agent-Register-Changeset@1
+
+- stage: 'UAT'
+  jobs:
+  - job: 'approval'
+    pool: server
+    steps: 
+- task: ServiceNow-DevOps-Server-Change-Acceleration@1
   inputs:
     connectedServiceName: 'DevOps Connection'
-    changesetId: '123'
-- task: ServiceNow-DevOps-Agent-Job-Notification@1
-  inputs:
-    connectedServiceName: 'DevOps Connection'
-    Phase: 'COMPLETED'
+  condition: true
