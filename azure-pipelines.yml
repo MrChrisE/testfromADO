@@ -5,18 +5,18 @@
 
 name: $(Date:yyyyMMdd)$(Rev:.r)
 
- stage: 'Build'
+- stage: Build
   jobs:
-  - job: 'Test'
+  - job: Test
     steps: 
     - task: ServiceNow-DevOps-Agent-Job-Notification@1
       inputs:
         connectedServiceName: 'DevOps Connection'
         Phase: 'STARTED'
 
-- stage: 'UAT'
+- stage: UAT
   jobs:
-  - job: 'approval'
+  - job: approval
     pool: server
     steps: 
     - task: ServiceNow-DevOps-Server-Change-Acceleration@1
