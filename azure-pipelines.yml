@@ -26,7 +26,7 @@ stages:
           connectedServiceName: 'empceverdingrome-Test-ServiceNow DevOps Service Connection'
           Phase: 'COMPLETED'
 
-  - stage: Deploy to UAT
+  - stage: Deploy_UAT
     jobs:
     - job: approval
       pool: server
