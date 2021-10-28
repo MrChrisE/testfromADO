@@ -5,21 +5,22 @@
 
 name: $(Date:yyyyMMdd)$(Rev:.r)
 
-- stage: Build
-  jobs:
-  - job: Test
-    steps: 
-    - task: ServiceNow-DevOps-Agent-Job-Notification@1
-      inputs:
-        connectedServiceName: 'DevOps Connection'
-        Phase: 'STARTED'
+stages:
+  - stage: Build
+    jobs:
+    - job: Test
+      steps: 
+      - task: ServiceNow-DevOps-Agent-Job-Notification@1
+        inputs:
+          connectedServiceName: 'DevOps Connection'
+          Phase: 'STARTED'
 
-- stage: UAT
-  jobs:
-  - job: approval
-    pool: server
-    steps: 
-    - task: ServiceNow-DevOps-Server-Change-Acceleration@1
-      inputs:
-        connectedServiceName: 'DevOps Connection'
-      condition: true
+  - stage: UAT
+    jobs:
+    - job: approval
+      pool: server
+      steps: 
+      - task: ServiceNow-DevOps-Server-Change-Acceleration@1
+        inputs:
+          connectedServiceName: 'DevOps Connection'
+        condition: true
