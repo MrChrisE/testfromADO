@@ -12,7 +12,7 @@ stages:
       steps: 
       - task: ServiceNow-DevOps-Agent-Job-Notification@1
         inputs:
-          connectedServiceName: 'DevOps Connection'
+          connectedServiceName: 'empceverdingrome-Test-ServiceNow DevOps Service Connection'
           Phase: 'STARTED'
       - task: Bash@3
         inputs:
@@ -23,7 +23,7 @@ stages:
             echo 'Hello world'
       - task: ServiceNow-DevOps-Agent-Job-Notification@1
         inputs:
-          connectedServiceName: 'DevOps Connection'
+          connectedServiceName: 'empceverdingrome-Test-ServiceNow DevOps Service Connection'
           Phase: 'COMPLETED'
 
   - stage: UAT
@@ -33,5 +33,5 @@ stages:
       steps: 
       - task: ServiceNow-DevOps-Server-Change-Acceleration@1
         inputs:
-          connectedServiceName: 'DevOps Connection'
+          connectedServiceName: 'empceverdingrome-Test-ServiceNow DevOps Service Connection'
         condition: true
