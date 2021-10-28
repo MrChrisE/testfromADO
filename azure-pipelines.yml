@@ -5,7 +5,7 @@
 
 name: $(Date:yyyyMMdd)$(Rev:.r)
 
-- stage: 'Build'
+ stage: 'Build'
   jobs:
   - job: 'Test'
     steps: 
