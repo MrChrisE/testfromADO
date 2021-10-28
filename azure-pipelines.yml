@@ -8,12 +8,23 @@ name: $(Date:yyyyMMdd)$(Rev:.r)
 stages:
   - stage: Build
     jobs:
-    - job: Test
+    - job: 'Build'
       steps: 
       - task: ServiceNow-DevOps-Agent-Job-Notification@1
         inputs:
           connectedServiceName: 'DevOps Connection'
           Phase: 'STARTED'
+      - task: Bash@3
+        inputs:
+          targetType: 'inline'
+          script: |
+            # Write your commands here
+            
+            echo 'Hello world'
+      - task: ServiceNow-DevOps-Agent-Job-Notification@1
+        inputs:
+          connectedServiceName: 'DevOps Connection'
+          Phase: 'COMPLETED'
 
   - stage: UAT
     jobs:
