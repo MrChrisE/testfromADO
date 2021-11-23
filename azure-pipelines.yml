@@ -35,3 +35,5 @@ stages:
         inputs:
           connectedServiceName: 'empceverdingrome-Test-ServiceNow DevOps Service Connection'
         condition: true
+
+lockBehavior:
