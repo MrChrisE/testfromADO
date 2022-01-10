@@ -40,5 +40,5 @@ stages:
           connectionType: 'connectedServiceName'
           serviceConnection: 'empceverdingrome-Test-Generic Connection'
           method: 'GET'
-          urlSuffix: '/api/sn_devops/devops/orchestration/changeInfo?stageName=Deploy_UAT%2Fapproval&pipelineName=Test%2FMrChrisE.testfromADO&toolId=d30ba9c0db63f010b8f92ebbd39619ce&buildNumber=buildNumber=$(build.buildId)'
+          urlSuffix: 'api/sn_devops/devops/orchestration/changeInfo?stageName=Deploy_UAT%2Fapproval&pipelineName=Test%2FMrChrisE.testfromADO&toolId=d30ba9c0db63f010b8f92ebbd39619ce&buildNumber=buildNumber=$(build.buildId)'
           waitForCompletion: 'true'
