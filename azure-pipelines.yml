@@ -35,3 +35,10 @@ stages:
         inputs:
           connectedServiceName: 'empceverdingrome-Test-ServiceNow DevOps Service Connection'
         condition: true
+      - task: InvokeRESTAPI@1
+        inputs:
+          connectionType: 'connectedServiceName'
+          serviceConnection: 'empceverdingrome-Test-Generic Connection'
+          method: 'GET'
+          urlSuffix: 'https://empceverdingrome.service-now.com/api/sn_devops/v1/devops/orchestration/changeInfo?toolId=d30ba9c0db63f010b8f92ebbd39619ce&buildNumber=$(build.buildId)'
+          waitForCompletion: 'true'
