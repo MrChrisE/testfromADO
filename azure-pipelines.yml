@@ -12,7 +12,7 @@ stages:
       steps: 
       - task: ServiceNow-DevOps-Agent-Job-Notification@1
         inputs:
-          connectedServiceName: 'empceverdingrome-Test-ServiceNow DevOps Service Connection'
+          connectedServiceName: 'empceverdingsd-Test-ServiceNow DevOps Service Connection'
           Phase: 'STARTED'
       - task: Bash@3
         inputs:
@@ -23,7 +23,7 @@ stages:
             echo 'Hello world'
       - task: ServiceNow-DevOps-Agent-Job-Notification@1
         inputs:
-          connectedServiceName: 'empceverdingrome-Test-ServiceNow DevOps Service Connection'
+          connectedServiceName: 'empceverdingsd-Test-ServiceNow DevOps Service Connection'
           Phase: 'COMPLETED'
 
   - stage: Deploy_UAT
@@ -33,12 +33,12 @@ stages:
       steps: 
       - task: ServiceNow-DevOps-Server-Change-Acceleration@1
         inputs:
-          connectedServiceName: 'empceverdingrome-Test-ServiceNow DevOps Service Connection'
+          connectedServiceName: 'empceverdingsd-Test-ServiceNow DevOps Service Connection'
         condition: true
       - task: InvokeRESTAPI@1
         inputs:
           connectionType: 'connectedServiceName'
-          serviceConnection: 'empceverdingrome-Test-Generic Connection'
+          serviceConnection: 'empceverdingsd-Test-ServiceNow DevOps Service Connection'
           method: 'GET'
           urlSuffix: 'api/sn_devops/devops/orchestration/changeInfo?stageName=Deploy_UAT%2Fapproval&pipelineName=Test%2FMrChrisE.testfromADO&toolId=d30ba9c0db63f010b8f92ebbd39619ce&buildNumber=$(build.buildId)'
           waitForCompletion: 'true'
