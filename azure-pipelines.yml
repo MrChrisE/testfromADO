@@ -34,5 +34,3 @@ stages:
       - task: ServiceNow-DevOps-Server-Change-Acceleration@1
         inputs:
           connectedServiceName: 'empceverdingsd-Test-ServiceNow DevOps Service Connection'
-        condition: true
-        continueOnError: 
