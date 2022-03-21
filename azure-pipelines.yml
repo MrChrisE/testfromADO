@@ -20,7 +20,7 @@ stages:
           script: |
             # Write your commands here
             
-            echo 'Hello world changed 2'
+            echo 'Hello world changed 10'
       - task: ServiceNow-DevOps-Agent-Job-Notification@1
         inputs:
           connectedServiceName: 'empceverdingsd-Test-ServiceNow DevOps Service Connection'
