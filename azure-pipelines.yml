@@ -10,10 +10,6 @@ stages:
     jobs:
     - job: 'Commit'
       steps: 
-      - task: ServiceNow-DevOps-Agent-Job-Notification@1
-        inputs:
-          connectedServiceName: 'empceverdingsd-Test-ServiceNow DevOps Service Connection'
-          Phase: 'STARTED'
       - task: Bash@3
         inputs:
           targetType: 'inline'
@@ -21,10 +17,6 @@ stages:
             # Write your commands here
             
             echo 'Hello world changed 10'
-      - task: ServiceNow-DevOps-Agent-Job-Notification@1
-        inputs:
-          connectedServiceName: 'empceverdingsd-Test-ServiceNow DevOps Service Connection'
-          Phase: 'COMPLETED'
 
   - stage: Deploy_UAT
     jobs:
